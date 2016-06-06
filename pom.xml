@@ -65,6 +65,10 @@
 
 	<repositories>
 		<repository>
+			<id>spring-releases</id>
+			<url>http://repo.spring.io/libs-release</url>
+		</repository>
+		<repository>
 			<id>spring-snasphot</id>
 			<url>https://repo.spring.io/libs-snapshot</url>
 		</repository>
@@ -132,7 +136,7 @@
 		</site>
 	</distributionManagement>
 
-    <description>Visual Glycan Structures Library</description>
+	<description>Visual Glycan Structures Library</description>
 	<issueManagement>
 		<system>github</system>
 		<url>https://github.com/glycoinfo/vision/issues</url>
