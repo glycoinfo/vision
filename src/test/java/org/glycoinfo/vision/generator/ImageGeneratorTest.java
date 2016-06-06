@@ -40,7 +40,7 @@ public class ImageGeneratorTest {
     // given().body(output2).with().contentType(JSON).then().statusCode(HttpStatus.SC_OK).and().expect().body(equalTo(image)).when().post("/glycans/image/glycan?format=png&notation=cfg&style=extended");
     logger.debug("sequence:>" + sequence);
 
-    byte[] result = imageGenerator.getImage(sequence, "wurcs", "cfg", "extended");
+    byte[] result = imageGenerator.getImage(sequence, "png", "cfg", "extended");
     BufferedImage img = ImageIO.read(new ByteArrayInputStream(result));
     String strResult = Encoding.encodeToString(img, "png");
     
