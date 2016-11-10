@@ -11,7 +11,7 @@ import org.eurocarbdb.MolecularFramework.sugar.Sugar;
 import org.eurocarbdb.application.glycanbuilder.BuilderWorkspace;
 import org.eurocarbdb.application.glycanbuilder.Glycan;
 import org.eurocarbdb.application.glycanbuilder.converterGlycoCT.GlycoCTParser;
-import org.eurocarbdb.application.glycanbuilder.converterWURCS2.WURCS2Parser;
+import org.glycoinfo.application.glycanbuilder.converterWURCS2.WURCS2Parser;
 import org.eurocarbdb.application.glycanbuilder.linkage.Union;
 import org.eurocarbdb.application.glycanbuilder.massutil.MassOptions;
 import org.eurocarbdb.application.glycanbuilder.renderutil.GlycanRendererAWT;
