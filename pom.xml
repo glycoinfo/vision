@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.glycoinfo</groupId>
 	<artifactId>vision</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>glycoVision library</name>
 	<url>http://www.glycoinfo.org/glycoVision</url>
@@ -100,7 +100,7 @@
 		<dependency>
 			<groupId>org.eurocarbdb.glycanbuilder</groupId>
 			<artifactId>wurcsextend</artifactId>
-			<version>1.0.3-SNAPSHOT</version>
+			<version>1.0.4-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -122,12 +122,12 @@
 		<repository>
 			<id>glycoinfo</id>
 			<name>Internal Releases</name>
-			<url>http://nexus.glycoinfo.org/content/repositories/releases/</url>
+			<url>http://nexus.glycoinfo.org/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>glycoinfo</id>
 			<name>Internal Release Snapshots</name>
-			<url>http://nexus.glycoinfo.org/content/repositories/snapshots/</url>
+			<url>http://nexus.glycoinfo.org/content/repositories/snapshots</url>
 		</snapshotRepository>
 		<site>
 			<id>glycoinfo-projects</id>
