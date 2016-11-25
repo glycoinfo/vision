@@ -8,13 +8,16 @@ import org.eurocarbdb.resourcesdb.io.MonosaccharideConversion;
 import org.eurocarbdb.resourcesdb.io.MonosaccharideConverter;
 import org.glycoinfo.vision.generator.ImageGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class ImageGeneratorConfig {
   
   @Bean
+  @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
   BuilderWorkspace builderWorkspace(GlycanRenderer glycanRenderer) {
     return new BuilderWorkspace(glycanRenderer);
   }
