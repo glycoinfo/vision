@@ -24,6 +24,7 @@ public class ImageGeneratorConfig {
 
 //<bean id="glycanRenderer" class="org.eurocarbdb.application.glycanbuilder.GlycanRendererAWT"/>
   @Bean
+  @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
   GlycanRenderer glycanRenderer() {
     return new GlycanRendererAWT(); 
   }
@@ -35,6 +36,7 @@ public class ImageGeneratorConfig {
 //</bean>
 //    <bean id="config" class="org.eurocarbdb.resourcesdb.Config"/>
   @Bean
+  @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
   MonosaccharideConversion monosaccharideConverter(Config config) {
     return new MonosaccharideConverter(config);
   }
@@ -45,6 +47,7 @@ public class ImageGeneratorConfig {
   }
   
   @Bean
+  @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
   ImageGenerator imageGenerator() {
     return new ImageGenerator();
   }
