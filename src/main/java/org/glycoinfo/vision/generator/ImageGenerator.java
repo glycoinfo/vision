@@ -29,7 +29,6 @@ import org.glycoinfo.vision.generator.config.ImageGeneratorConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 
-@Import(ImageGeneratorConfig.class)
 public class ImageGenerator {
 
 	@Autowired
