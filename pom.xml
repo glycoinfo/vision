@@ -23,6 +23,8 @@
 		<repository.user>glycoinfo</repository.user>
 		<repository.name>vision</repository.name>
 		<googleAnalyticsAccountId>UA-54566807-1</googleAnalyticsAccountId>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<scm>
@@ -81,6 +83,7 @@
 						</goals>
 					</execution>
 				</executions>
+
 			</plugin>
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
