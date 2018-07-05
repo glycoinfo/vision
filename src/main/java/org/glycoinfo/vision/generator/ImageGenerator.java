@@ -34,6 +34,22 @@ public class ImageGenerator {
 	@Autowired
 	BuilderWorkspace glycanWorkspace;
 	
+	public BuilderWorkspace getGlycanWorkspace() {
+		return glycanWorkspace;
+	}
+
+	public void setGlycanWorkspace(BuilderWorkspace glycanWorkspace) {
+		this.glycanWorkspace = glycanWorkspace;
+	}
+
+	public MonosaccharideConversion getMonosaccharideConverter() {
+		return monosaccharideConverter;
+	}
+
+	public void setMonosaccharideConverter(MonosaccharideConversion monosaccharideConverter) {
+		this.monosaccharideConverter = monosaccharideConverter;
+	}
+
 	@Autowired
 	MonosaccharideConversion monosaccharideConverter;
 	
