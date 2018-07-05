@@ -82,6 +82,8 @@ public class ImageGenerator {
 			glycanWorkspace.setNotation(GraphicOptions.NOTATION_UOXFCOL);
 		else if (notation.equalsIgnoreCase("iupac"))
 			glycanWorkspace.setNotation(GraphicOptions.NOTATION_TEXT);
+		else if (notation.equalsIgnoreCase("snfg"))
+			glycanWorkspace.setNotation(GraphicOptions.NOTATION_SNFG);
 		else 
 			throw new IllegalArgumentException("Notation " + notation + " is not supported");
 		

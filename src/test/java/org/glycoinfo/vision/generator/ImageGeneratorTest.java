@@ -81,7 +81,7 @@ public static void main(String[] args) throws Exception {
 
     logger.debug("sequence:>" + sequence);
 
-    byte[] result = ig.getImage(sequence, "png", "cfg", "extended");
+    byte[] result = ig.getImage(sequence, "png", "snfg", "extended");
     BufferedImage img = ImageIO.read(new ByteArrayInputStream(result));
     String strResult = Encoding.encodeToString(img, "png");
     logger.debug("strResult:>" + strResult);
