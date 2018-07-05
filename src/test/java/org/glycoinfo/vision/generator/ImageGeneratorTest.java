@@ -7,6 +7,12 @@ import javax.imageio.ImageIO;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.eurocarbdb.application.glycanbuilder.BuilderWorkspace;
+import org.eurocarbdb.application.glycanbuilder.renderutil.GlycanRenderer;
+import org.eurocarbdb.application.glycanbuilder.renderutil.GlycanRendererAWT;
+import org.eurocarbdb.resourcesdb.Config;
+import org.eurocarbdb.resourcesdb.io.MonosaccharideConversion;
+import org.eurocarbdb.resourcesdb.io.MonosaccharideConverter;
 import org.glycoinfo.vision.generator.ImageGenerator;
 import org.glycoinfo.vision.generator.config.ImageGeneratorConfig;
 import org.glycoinfo.vision.util.Encoding;
@@ -18,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -60,4 +67,25 @@ public class ImageGeneratorTest {
     logger.debug("<html><img src=\"data:image/png;base64," + strResult + "\"></html>");
     Assert.assertEquals("iVBORw0KGgoAAAANSUhEUgAAAO4AAABSCAIAAADchH97AAADlklEQVR42u2cIU8jQRiGP4HsD6hscpuwyTU5BMnVg2hCRUUFAoGorEAgKy6pwSMQFYiKioqKihUrkJUIBP/gxJFcEwQkreC+294RIIVuu2VnZ/Z5sqpsyPLO05lvZmeQJwAnECIAVAZAZQBUBkBlQGUAVAZAZQBUBlQGQGUAVAZAZQBUBlQGQGUAVAZAZUBlAFQGQGUAVAZUBkBlAFQGQGUAVAZUBkBlyAWTySQXKs9mszAMW63W7u6u/Mf3/WazqZ/rT1HB6tyur6+LxaIpm9NTud/vi3wR+SbyQ+RK5F5kKvIgMhY5E/nueZ7eg7j25qbftPPzc5d75cfHx6OjI5FtkVHUDO9dgcjXw8NDvR+DrcttNBqVy2WDQ4Sk0B4iByJ7Ij8/bI/59Vtv3t/fx2brcut0Oqenpy5P+6J+ZS/Kehrv0qHzQPuYnKtsXW4nJycXFxfOqhzVedvx+pVXfYwOVXmum23MTXvldrvtpspaNkXzldGK7fGv/tPZjJHCS15jZL3CxtwGg4GOJG6qHIZhNO+erndVKpUgCIx4/OaTlJ/BxtyU29tbHRPcVLnVakXrR9N1r7Nms5m+ysarCxtzm1Mqle7u7hxUOVrPv0rQJGPf93Ooso25zdFJZ7fbdVDlaKy+T9AkD0bEMlUi257bfLZarVZdVXma7EqVDyZ/qWNTbm8wVWN8ospbW1uW9i5mSw6rc6vX671ej1o5KzWfWZWtzk09bjQarGBseCa+RtW7sMxI+Xti7wrGU7TJs1AoGHl/7uy68tySNURM7RXJe7/f0nXll6PKzc2NUyrPZjPP8zb41moNw7JQba/6TctCbknQMcHIy3Ob9mA8t0T8Vsmmyi//kGzmlgRTmzGyuDOuVqst3OGVH5WN55aEy8vL4+NjB1XWGYBGHLXKrzj9it783r7bOAZkX+WlS9pZyC0J2iUb2bic3ikS3/eXnobQ8fGD0xAu1cpxHs9gbknQhxkOh26q/Fz/6YxkZ2dn4Rk1nXcvPaP2siWsLjBWejwjua1Nt9tVlV1bjFs4N38+ORy90/qLtoTOeYMgWLrLdqUmMb7tOH6lkanckjCZTIrF4ng8NpPnkz2k2bu4RJq55eX/YGxw4o/K5Ga3ykhMbq4VGEBuqIzKqAyAygCoDIDKgMoAqAyAygCoDIDKgMoAqAyAygCoDKgMgMoAqAyAyoDKAKgMgMoAqAyAyoDKAKgM8Fn8AYORxMEo6qHvAAAAAElFTkSuQmCC", strResult);
   }
+  
+  
+public static void main(String[] args) throws Exception {
+	ImageGenerator ig = new ImageGenerator();
+	GlycanRenderer glycanRenderer = new GlycanRendererAWT();
+	BuilderWorkspace glycanWorkspace = new BuilderWorkspace(glycanRenderer );
+	ig.setGlycanWorkspace(glycanWorkspace);
+	MonosaccharideConversion monosaccharideConverter =     new MonosaccharideConverter(new Config());
+
+	ig.setMonosaccharideConverter(monosaccharideConverter);
+    String sequence = "WURCS=2.0/1,2,1/[a2122h-1b_1-5]/1-1/a4-b1*OSO*/3=O/3=O";
+
+    logger.debug("sequence:>" + sequence);
+
+    byte[] result = ig.getImage(sequence, "png", "cfg", "extended");
+    BufferedImage img = ImageIO.read(new ByteArrayInputStream(result));
+    String strResult = Encoding.encodeToString(img, "png");
+    logger.debug("strResult:>" + strResult);
+    logger.debug("<html><img src=\"data:image/png;base64," + strResult + "\"></html>");
+
+}
 }
