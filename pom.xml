@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.glycoinfo</groupId>
 	<artifactId>vision</artifactId>
-	<version>0.7-SNAPSHOT</version>
+	<version>0.10.0</version>
 	<packaging>jar</packaging>
 	<name>glycoVision library</name>
 	<url>http://www.glycoinfo.org/glycoVision</url>
@@ -57,17 +57,37 @@
 			<properties>
 			</properties>
 		</developer>
+		<developer>
+			<id>issaku</id>
+			<name>Issaku Yamada</name>
+			<email>yamadaissaku@gmail.com</email>
+			<url>https://github.com/yamadaissaku</url>
+			<organization>The Noguchi Institute</organization>
+			<organizationUrl>https://www.noguchi.or.jp</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>-9</timezone>
+			<properties>
+			</properties>
+		</developer>
 	</developers>
 
 	<repositories>
 		<repository>
 			<id>spring-releases</id>
-			<url>http://repo.spring.io/libs-release</url>
+			<url>https://repo.spring.io/libs-release</url>
 		</repository>
 		<repository>
 			<id>glycoinfo</id>
-			<url>http://nexus.glycoinfo.org/content/repositories/public</url>
+			<url>https://nexus.glycoinfo.org/content/repositories/public</url>
 		</repository>
+		<repository>
+      		<id>github</id>
+      		<name>my github repository</name>
+      		<url>https://raw.githubusercontent.com/glycoinfo/MavenRepository/master/</url>
+    	</repository>
 	</repositories>
 
 	<build>
@@ -85,6 +105,7 @@
 				</executions>
 
 			</plugin>
+			<!--
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<executions>
@@ -97,13 +118,23 @@
 					</execution>
 				</executions>
 			</plugin>
+			-->
+		    <plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-surefire-plugin</artifactId>
+        		<version>2.12</version>
+        		<configuration>
+          		<skipTests>true</skipTests>
+        		</configuration>
+      		</plugin>
 		</plugins>
 	</build>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.eurocarbdb.glycanbuilder</groupId>
-			<artifactId>wurcsextend</artifactId>
-			<version>1.0.4-SNAPSHOT</version>
+			<artifactId>glycanbuilder2</artifactId>
+			<version>1.15.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -125,16 +156,16 @@
 		<repository>
 			<id>glycoinfo</id>
 			<name>Internal Releases</name>
-			<url>http://nexus.glycoinfo.org/content/repositories/releases</url>
+			<url>https://nexus.glycoinfo.org/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>glycoinfo</id>
 			<name>Internal Release Snapshots</name>
-			<url>http://nexus.glycoinfo.org/content/repositories/snapshots</url>
+			<url>https://nexus.glycoinfo.org/content/repositories/snapshots</url>
 		</snapshotRepository>
 		<site>
 			<id>glycoinfo-projects</id>
-			<url>dav:http://nexus.glycoinfo.org/content/sites/project/glycoVision</url>
+			<url>dav:https://nexus.glycoinfo.org/content/sites/project/glycoVision</url>
 		</site>
 	</distributionManagement>
 
@@ -143,10 +174,6 @@
 		<system>github</system>
 		<url>https://github.com/glycoinfo/vision/issues</url>
 	</issueManagement>
-	<ciManagement>
-		<system>jenkins</system>
-		<url>http://jenkins2.glycoinfo.org/job/vision</url>
-	</ciManagement>
 
 	<dependencyManagement>
 		<dependencies>
