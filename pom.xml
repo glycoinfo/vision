@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.glycoinfo</groupId>
 	<artifactId>vision</artifactId>
-	<version>0.7-SNAPSHOT</version>
+	<version>0.8-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>glycoVision library</name>
 	<url>http://www.glycoinfo.org/glycoVision</url>
@@ -68,6 +68,14 @@
 			<id>glycoinfo</id>
 			<url>http://nexus.glycoinfo.org/content/repositories/public</url>
 		</repository>
+
+		<repository>
+      		<id>github</id>
+      		<name>my github repository</name>
+      		<url>https://raw.githubusercontent.com/glycoinfo/MavenRepository/master/</url>
+    	</repository>
+
+
 	</repositories>
 
 	<build>
@@ -102,8 +110,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.eurocarbdb.glycanbuilder</groupId>
-			<artifactId>wurcsextend</artifactId>
-			<version>1.0.4-SNAPSHOT</version>
+			<artifactId>glycanbuilder2</artifactId>
+			<version>1.15.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
